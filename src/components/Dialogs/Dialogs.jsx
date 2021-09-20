@@ -10,11 +10,24 @@ const Dialogs = props => {
   const messagesElems = props.messages
     .map(m => <MessageItem message={`${m.message} - ${m.id}`}/>)
 
+  const newMessage = React.createRef()
+
+  const addMessage = () => {
+    let mess = newMessage.current.value
+    alert(mess)
+  }
+
   return (
     <div className={s.dialogs}>
       <ul className={s.dialogsItems}>
         { dialogsElems }
       </ul>
+
+      <div>
+        <textarea ref={newMessage}/>
+        <button onClick={ addMessage }>Add</button>
+      </div>
+
 
       <ul className={s.messages}>
         { messagesElems }
