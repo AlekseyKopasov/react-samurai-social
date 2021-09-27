@@ -7,10 +7,10 @@ const Dialogs = props => {
   const { messagesPage } = props
 
   const dialogsElems = messagesPage.dialogs
-    .map(d => <DialogItem name={d.name} id={d.id}/>)
+    .map(d => <DialogItem name={d.name} key={d.id} id={d.id}/>)
 
   const messagesElems = messagesPage.messages
-    .map(m => <MessageItem message={m.message}/>)
+    .map(m => <MessageItem message={m.message} key={m.id}/>)
 
   const updateMessageBodyHandler = event => {
     const text = event.target.value

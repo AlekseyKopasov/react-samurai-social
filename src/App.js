@@ -4,10 +4,9 @@ import Header from './components/Header/Header'
 import Navbar from './components/Navbar/Navbar'
 import Profile from './components/Profile/Profile'
 import {BrowserRouter, Route} from 'react-router-dom'
-import store from './Redux/redux-store'
 import DialogsContainer from './components/Dialogs/DialogsContainer'
 
-const App = props => {
+const App = () => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -15,13 +14,10 @@ const App = props => {
         <Navbar/>
         <div className="app-wrapper-content">
           <Route path="/dialogs"
-             render={() =>
-               <DialogsContainer store={store.getState()} dispatch={props.dispatch} />}
+             render={() => <DialogsContainer />}
           />
           <Route path="/profile"
-             render={() =>
-               <Profile store={store.getState()} dispatch={props.dispatch}/>
-             }/>
+             render={() => <Profile />}/>
         </div>
       </div>
     </BrowserRouter>
