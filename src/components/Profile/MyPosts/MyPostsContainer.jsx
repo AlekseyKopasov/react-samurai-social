@@ -1,6 +1,5 @@
-import React from 'react'
 import MyPosts from './MyPosts'
-import {addPostCreator, updateNewPostTextCreator} from '../../../Redux/reducers/profile-reducer'
+import {addPostCreator, updateNewPostTextCreator} from '../../../Redux/reducers/profileReducer'
 import {connect} from 'react-redux'
 
 const mapStateToProps = state => {

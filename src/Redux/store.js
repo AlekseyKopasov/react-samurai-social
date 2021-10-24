@@ -1,6 +1,6 @@
-import profileReducer from './reducers/profile-reducer'
-import messagesReducer from './reducers/messages-reducer'
-import sidebarReducer from './reducers/sidebar-reducer'
+import profileReducer from './reducers/profileReducer'
+import messagesReducer from './reducers/messagesReducer'
+import sidebarReducer from './reducers/sidebarReducer'
 
 const store = {
   _state: {

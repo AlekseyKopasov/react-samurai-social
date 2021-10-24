@@ -8,6 +8,8 @@
   grid-gap: 10px;
   max-width: 1240px;
   margin: 0 auto;
+
+  color: #666666;
 }
 
 .app-wrapper-content {

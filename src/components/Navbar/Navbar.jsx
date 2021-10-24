@@ -4,22 +4,25 @@ import {NavLink} from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <nav className={s.nav}>
-      <ul className={s.navList}>
-        <li className={s.navItem}>
-          <NavLink to="/profile" activeClassName={s.activeLink}>Profile</NavLink>
+    <nav className="nav">
+      <ul className="navList">
+        <li className="navItem">
+          <NavLink to="/profile" activeClassName="activeLink">Profile</NavLink>
         </li>
-        <li className={s.navItem}>
-          <NavLink to="/dialogs" activeClassName={s.activeLink}>Messages</NavLink>
+        <li className="navItem">
+          <NavLink to="/dialogs" activeClassName="activeLink">Messages</NavLink>
         </li>
-        <li className={s.navItem}>
+        <li className="navItem">
           <NavLink to="">News</NavLink>
         </li>
-        <li className={s.navItem}>
+        <li className="navItem">
           <NavLink to="">Music</NavLink>
         </li>
-        <li className={s.navItem}>
+        <li className="navItem">
           <NavLink to="">Settings</NavLink>
+        </li>
+        <li className="navItem">
+          <NavLink to="/users">Users</NavLink>
         </li>
       </ul>
     </nav>
