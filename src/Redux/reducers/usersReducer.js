@@ -2,7 +2,10 @@ const IS_FOLLOWED = 'IS_FOLLOWED'
 const SET_USERS = 'SET-USERS'
 
 const initialState = {
-  users: []
+  users: [],
+  pageSize: 4,
+  totalUsersCount: 20,
+  currentPage: 1
 }
 
 const usersReducer = (state = initialState, action) => {

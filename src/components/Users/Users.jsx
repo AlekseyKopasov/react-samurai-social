@@ -1,26 +1,42 @@
 import React from 'react'
-import styles from './Users.module.css'
+import s from './Users.module.css'
 import * as axios from 'axios'
 import userPhoto from '../../assets/images/user.png'
+// jsonPlaceholder: 'https://jsonplaceholder.typicode.com/users/'
+// samuraiApi: 'https://social-network.samuraijs.com/api/1.0/users'
 
-const Users = (props) => {
-  const getUsers = () => {
-    if (props.users.length === 0) {
-      axios.get('https://social-network.samuraijs.com/api/1.0/users')
-        .then(res => {
-          props.setUsers(res.data.items)
-        })
-    }
+class Users extends React.Component {
+  componentDidMount() {
+    axios.get('https://social-network.samuraijs.com/api/1.0/users')
+      .then(res => {
+        this.props.setUsers(res.data.items)
+      })
   }
+  render() {
+    let pageCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize)
+    let pages = []
 
-  return  <div className="users">
+    for (let i = 1; i <= pageCount; i+= 1) {
+      pages.push(i)
+    }
+
+    return  <div className={s.users}>
+
+      <ul className={s.pagination}>
+        { pages.map(p => {
+            return <li className={s.paginationItem}>
+              <a href="#" className={s.paginationLink + " " + (this.props.currentPage === p && s.selectedPage)}>{p}</a>
+            </li>
+          }) }
+      </ul>
+
       {
-        props.users.map(user =>
+        this.props.users.map(user =>
           <div key={user.id}>
             <img src={ user.photos.small !== null ? user.photos.small : userPhoto } alt={user.name}/>
             <p>{user.status}</p>
             <p>{user.name}</p>
-            <button onClick={ () => { props.toggleFollow(user.id) } }>
+            <button onClick={ () => { this.props.toggleFollow(user.id) } }>
               {
                 user.followed
                   ? <span>Unfollow</span>
@@ -28,9 +44,9 @@ const Users = (props) => {
               }
             </button>
           </div>
-      ) }
+        ) }
     </div>
+  }
 }
-
 
 export default Users
