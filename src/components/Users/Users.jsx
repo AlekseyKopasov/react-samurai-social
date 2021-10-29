@@ -7,11 +7,22 @@ import userPhoto from '../../assets/images/user.png'
 
 class Users extends React.Component {
   componentDidMount() {
-    axios.get('https://social-network.samuraijs.com/api/1.0/users')
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+      .then(res => {
+        this.props.setUsers(res.data.items)
+        this.props.setTotalUsersCount(res.data.totalCount)
+      })
+  }
+
+  onPageChanged = (pageNum) => {
+    this.props.setCurrentPage(pageNum)
+
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNum}&count=${this.props.pageSize}`)
       .then(res => {
         this.props.setUsers(res.data.items)
       })
   }
+
   render() {
     let pageCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize)
     let pages = []
@@ -24,9 +35,17 @@ class Users extends React.Component {
 
       <ul className={s.pagination}>
         { pages.map(p => {
-            return <li className={s.paginationItem}>
-              <a href="#" className={s.paginationLink + " " + (this.props.currentPage === p && s.selectedPage)}>{p}</a>
+          if (p <= 5) { // TODO dev only
+            return <li className={s.paginationItem} key={p}>
+              <a
+                href="#"
+                className={s.paginationLink + " " + (this.props.currentPage === p && s.selectedPage)}
+                onClick={ () => {this.onPageChanged(p)} }
+              >
+                {p}
+              </a>
             </li>
+          }
           }) }
       </ul>
 
