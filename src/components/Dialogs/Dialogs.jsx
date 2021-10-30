@@ -2,6 +2,7 @@ import React from 'react'
 import s from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import MessageItem from './Message/Message'
+import {sendMessageCreator, updateNewMessageCreator} from '../../Redux/reducers/messagesReducer'
 
 const Dialogs = props => {
   const { messagesPage } = props
@@ -14,11 +15,11 @@ const Dialogs = props => {
 
   const updateMessageBodyHandler = event => {
     const text = event.target.value
-    props.updateMessageBody(text)
+    props.updateNewMessageCreator(text)
   }
 
   const sendMessageHandler = () => {
-    props.sendMessage()
+    props.sendMessageCreator()
   }
 
   return (
