@@ -64,4 +64,6 @@ export const setTotalUsersCount = (count) => ({type: SET_TOTAL_USERS_COUNT, coun
 
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
+export const toggleIsFetchingAC = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
+
 export default usersReducer
