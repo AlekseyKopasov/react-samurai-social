@@ -2,7 +2,6 @@ import React from 'react'
 import s from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import MessageItem from './Message/Message'
-import {sendMessageCreator, updateNewMessageCreator} from '../../Redux/reducers/messagesReducer'
 
 const Dialogs = props => {
   const { messagesPage } = props

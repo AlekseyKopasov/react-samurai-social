@@ -34,11 +34,6 @@ const usersReducer = (state = initialState, action) => {
         ...state,
         currentPage: action.currentPage,
       }
-    case SET_CURRENT_PAGE:
-      return {
-        ...state,
-        users: action.users,
-      }
     case SET_TOTAL_USERS_COUNT:
       return {
         ...state,
@@ -63,7 +58,5 @@ export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, current
 export const setTotalUsersCount = (count) => ({type: SET_TOTAL_USERS_COUNT, count})
 
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
-
-export const toggleIsFetchingAC = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 export default usersReducer

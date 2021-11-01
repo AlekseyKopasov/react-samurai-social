@@ -1,15 +1,19 @@
 import React from 'react'
 import s from './ProfileInfo.module.css'
+import Preloader from '../../common/Preloader/Preloader'
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+  if (!props.profile) {
+    return <Preloader />
+  }
   return (
     <div>
       <div className={s.profileInfo}>
-        <img src="https://pix10.agoda.net/hotelImages/301716/-1/fe9724d8fb4da3dd4590353bd771a276.jpg?s=1024x768" alt=""/>
+        {<img src={props.profile.photos.large} alt=""/> }
       </div>
 
       <div className={s.descriptionBlock}>
-        ava + descr
+        descr
       </div>
     </div>
   )

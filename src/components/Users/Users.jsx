@@ -1,7 +1,7 @@
 import React from 'react'
 import s from './Users.module.css'
-import * as axios from 'axios'
 import userPhoto from '../../assets/images/user.png'
+import {NavLink} from 'react-router-dom'
 
 const Users = (props) => {
   let pageCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -25,13 +25,16 @@ const Users = (props) => {
             </a>
           </li>
         }
+        return false
       }) }
     </ul>
 
     {
       props.users.map(user =>
         <div key={user.id}>
-          <img src={ user.photos.small !== null ? user.photos.small : userPhoto } alt={user.name}/>
+          <NavLink to={'/profile/' + user.id}>
+            <img src={ user.photos.small !== null ? user.photos.small : userPhoto } alt={user.name}/>
+          </NavLink>
           <p>{user.status}</p>
           <p>{user.name}</p>
           <button onClick={ () => { props.toggleFollow(user.id) } }>
