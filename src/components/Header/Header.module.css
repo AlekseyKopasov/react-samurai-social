@@ -7,3 +7,24 @@
   width: 20px;
   height: 20px;
 }
+
+.headerWrapper {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Roboto", sans-serif;
+}
+
+.headerLoginWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffffff;
+}
+
+.headerLoginLink {
+  font-family: inherit;
+  color: inherit;
+  text-decoration: none;
+}

@@ -3,12 +3,14 @@ import messagesReducer from './reducers/messagesReducer'
 import profileReducer from './reducers/profileReducer'
 import sidebarReducer from './reducers/sidebarReducer'
 import usersReducer from './reducers/usersReducer'
+import authReducer from './reducers/authReducer'
 
 const reducers = combineReducers({
   profilePage: profileReducer,
   messagesPage: messagesReducer,
   sidebar: sidebarReducer,
-  usersPage: usersReducer
+  usersPage: usersReducer,
+  auth: authReducer
 })
 
 const store = createStore(reducers)

@@ -23,7 +23,7 @@ class ProfileContainer extends React.Component {
     return (
       <Profile {...this.props} profile={this.props.profile} />
     )
-  }
+  }   
 }
 
 const mapStateToProps = (state) => ({
