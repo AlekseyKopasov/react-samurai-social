@@ -1,0 +1,9 @@
+.app {
+  min-height: 100vh;
+}
+
+.app__content {
+  display: flex;
+  height: 100%;
+  background-color: $color-black-russian;
+}

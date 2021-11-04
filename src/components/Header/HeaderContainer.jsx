@@ -1,8 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import axios from 'axios'
-import s from'./Header.module.css'
-import {NavLink} from 'react-router-dom'
 import Header from './Header'
 import {setAuthUserData} from '../../Redux/reducers/authReducer'
 

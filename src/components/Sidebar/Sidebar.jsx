@@ -1,37 +1,17 @@
 import React from 'react'
-import styles from './Sidebar.module.css'
+import styles from './Sidebar.module.scss'
 import Navbar from '../Navbar/Navbar'
+import UserStatistics from '../UserStatistics/UserStatistics'
+import Button from '../common/Button/Button'
 
 const Sidebar = () => {
   return (
     <aside className={styles.sidebar}>
-
-      <div className="userInfo">
-        <div className="userAvatar">
-          <img src="" alt=""/>
-        </div>
-        <div className={styles.sidebarUserStatistics}>
-          <ul className="userStatistics">
-            <li className="userStatisticsItem">
-              <span className="userStatisticsTitle">Постов</span>
-              <span className="userStatisticsCount">130</span>
-            </li>
-            <li className="userStatisticsItem">
-              <span className="userStatisticsTitle">Подписок</span>
-              <span className="userStatisticsCount">125</span>
-            </li>
-            <li className="userStatisticsItem">
-              <span className="userStatisticsTitle">Подписчиков</span>
-              <span className="userStatisticsCount">456</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
+      <UserStatistics />
       <Navbar />
 
-      <div className={styles.sidebarLogout}>
-        <button className="btn">Выход</button>
+      <div className={styles.sidebar__logout}>
+        <Button text="Выход" btnClass="button__link" />
       </div>
     </aside>
   )
