@@ -1,0 +1,48 @@
+@import "../../assets/styles/variables.scss";
+
+.pagination {
+  margin: 20px auto;
+  padding: 0;
+  list-style: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination__item {
+  width: 45px;
+  height: 45px;
+  margin-right: 7px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.pagination__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px;
+  font-size: 16px;
+  text-decoration: none;
+
+  border-radius: 50%;
+
+  color: $color-solitude;
+  background-color: $color-black-russian-2;
+  transition: color $trans--300;
+
+  &:hover,
+  &:focus {
+    color: $color-jazzberry-jam;
+  }
+
+  &.selected-page {
+    border: 1px solid $color-jazzberry-jam;
+    color: $color-jazzberry-jam;
+    pointer-events: none;
+  }
+}

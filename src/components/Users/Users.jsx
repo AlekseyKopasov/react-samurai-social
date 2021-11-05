@@ -1,51 +1,57 @@
 import React from 'react'
-import s from './Users.module.css'
-import userPhoto from '../../assets/images/user.png'
+import styles from './Users.module.scss'
 import {NavLink} from 'react-router-dom'
+import UserLogoDefault from '../common/UserLogoDefault/UserLogoDefault'
+import Pagination from '../Pagination/Pagination'
+import Button from '../common/Button/Button'
 
 const Users = (props) => {
   let pageCount = Math.ceil(props.totalUsersCount / props.pageSize)
   let pages = []
 
-  for (let i = 1; i <= pageCount; i+= 1) {
+  for (let i = 1; i <= pageCount; i += 1) {
     pages.push(i)
   }
 
-  return  <div className={s.users}>
-    <ul className={s.pagination}>
-      { pages.map(p => {
-        if (p <= 5) { // TODO dev only
-          return <li className={s.paginationItem} key={p}>
-            <a
-              href="#"
-              className={s.paginationLink + " " + (props.currentPage === p && s.selectedPage)}
-              onClick={ () => {props.onPageChanged(p)} }
-            >
-              {p}
-            </a>
-          </li>
-        }
-        return false
-      }) }
-    </ul>
+  return <div className={styles.users}>
+    {pages.length !== 0 && <Pagination
+      pages={pages}
+      onPageChanged={props.onPageChanged}
+      currentPage={props.currentPage}
+    />}
 
-    {
-      props.users.map(user =>
-        <div key={user.id}>
-          <NavLink to={'/profile/' + user.id}>
-            <img src={ user.photos.small !== null ? user.photos.small : userPhoto } alt={user.name}/>
-          </NavLink>
-          <p>{user.status}</p>
-          <p>{user.name}</p>
-          <button onClick={ () => { props.toggleFollow(user.id) } }>
-            {
-              user.followed
-                ? <span>Unfollow</span>
-                : <span>Follow</span>
-            }
-          </button>
-        </div>
-      ) }
+    <ul className={styles.users__list}>
+      {
+        props.users.map(user =>
+          <li key={user.id} className={styles.users__item}>
+            <NavLink to={'/profile/' + user.id} className={styles.users__logo}>
+              {user.photos.small !== null
+                ? <img src={user.photos.small} alt={user.name}/>
+                : <UserLogoDefault/>
+              }
+            </NavLink>
+
+            <div className={styles.users__info}>
+              <p className={styles.users__name}>Имя:
+                <NavLink to={'/profile/' + user.id}>
+                  <span>{user.name}</span>
+                </NavLink> </p>
+              <p className={styles.users__status}>Статус: {user.status ? user.status : <span>Нет статуса</span>}</p>
+            </div>
+
+            <Button
+              text={
+                user.followed
+                  ? <span>Unfollow</span>
+                  : <span>Follow</span>
+              }
+              btnClass="button__link"
+              onClick={() => {
+                props.toggleFollow(user.id)
+              }} />
+          </li>
+        )}
+    </ul>
   </div>
 }
 

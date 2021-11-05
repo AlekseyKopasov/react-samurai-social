@@ -1,0 +1,9 @@
+@import "../../../assets/styles/variables.scss";
+
+.logo-default {
+  svg {
+    width: 100px;
+    height: 100px;
+    fill: $color-solitude;
+  }
+}

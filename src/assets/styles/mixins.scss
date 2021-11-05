@@ -54,9 +54,13 @@
 }
 
 @mixin hover-button {
-  &:hover,
-  &:focus {
+  &:hover {
     color: $color-jazzberry-jam;
+    border-color: $color-jazzberry-jam;
+    outline: none;
+  }
+
+  &:focus {
     border-color: $color-jazzberry-jam;
     outline: none;
   }
