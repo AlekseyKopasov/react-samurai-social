@@ -20,7 +20,6 @@ const Users = (props) => {
       onPageChanged={props.onPageChanged}
       currentPage={props.currentPage}
     />}
-
     <ul className={styles.users__list}>
       {
         props.users.map(user =>
@@ -45,15 +44,15 @@ const Users = (props) => {
                 text={<span>Отписаться</span>}
                 btnClass="button__link"
                 clickHander={() => {
-                  axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, {
+                  axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {
                     withCredentials: true,
                     headers: {
                       'api-key': '766ef93a-df4d-40f1-a23d-13c33a1e889c'
                     }
                   })
                     .then(res => {
-                      if (res.data.resultCode == 0) {
-                        props.follow(user.id)
+                      if (res.data.resultCode === 0) {
+                        props.unfollow(user.id)
                       }
                     })
                   }
@@ -63,15 +62,15 @@ const Users = (props) => {
                 text={<span>Подписаться</span>}
                 btnClass="button__link"
                 clickHander={() => {
-                  axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {
+                  axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, {
                     withCredentials: true,
                     headers: {
                       'api-key': '766ef93a-df4d-40f1-a23d-13c33a1e889c'
                     }
                   })
                     .then(res => {
-                      if (res.data.resultCode == 0) {
-                        props.unfollow(user.id)
+                      if (res.data.resultCode === 0) {
+                        props.follow(user.id)
                       }
                     })
                 }}

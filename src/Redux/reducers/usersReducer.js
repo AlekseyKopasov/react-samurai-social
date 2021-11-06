@@ -1,5 +1,5 @@
-const FOLLOWE = 'FOLLOWE'
-const UNFOLLOWE = 'UNFOLLOWE'
+const FOLLOW = 'FOLLOW'
+const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET-USERS'
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
@@ -15,22 +15,22 @@ const initialState = {
 
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FOLLOWE:
-      return {
-        ...state,
-        users: state.users.map(u => {
-          if (u.id === action.userId) {
-            return {...u, followed: false}
-          }
-          return u
-        }),
-      }
-      case UNFOLLOWE:
+    case FOLLOW:
       return {
         ...state,
         users: state.users.map(u => {
           if (u.id === action.userId) {
             return {...u, followed: true}
+          }
+          return u
+        }),
+      }
+      case UNFOLLOW:
+      return {
+        ...state,
+        users: state.users.map(u => {
+          if (u.id === action.userId) {
+            return {...u, followed: false}
           }
           return u
         }),
@@ -60,16 +60,11 @@ const usersReducer = (state = initialState, action) => {
   }
 }
 
-export const follow = (userId) => ({type: FOLLOWE, userId})
-
-export const unfollow = (userId) => ({type: UNFOLLOWE, userId})
-
+export const follow = (userId) => ({type: FOLLOW, userId})
+export const unfollow = (userId) => ({type: UNFOLLOW, userId})
 export const setUsers = (users) => ({type: SET_USERS, users})
-
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
-
 export const setTotalUsersCount = (count) => ({type: SET_TOTAL_USERS_COUNT, count})
-
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 export default usersReducer

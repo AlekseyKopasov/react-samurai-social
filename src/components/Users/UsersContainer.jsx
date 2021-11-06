@@ -14,12 +14,17 @@ import {
 import Users from './Users'
 import Preloader from '../common/Preloader/Preloader'
 
+const BASE_URL = 'https://social-network.samuraijs.com/api/1.0'
+
 class UsersContainer extends React.Component {
   componentDidMount() {
     this.props.toggleIsFetching(true)
 
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
+    axios.get(`${BASE_URL}/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
       withCredentials: true,
+      headers: {
+        'api-key': '766ef93a-df4d-40f1-a23d-13c33a1e889c'
+      }
     })
       .then(res => {
         this.props.setUsers(res.data.items)
@@ -32,8 +37,11 @@ class UsersContainer extends React.Component {
     this.props.setCurrentPage(pageNum)
     this.props.toggleIsFetching(true)
 
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNum}&count=${this.props.pageSize}`, {
+    axios.get(`${BASE_URL}/users?page=${pageNum}&count=${this.props.pageSize}`, {
       withCredentials: true,
+      headers: {
+        'api-key': '766ef93a-df4d-40f1-a23d-13c33a1e889c'
+      }
     })
       .then(res => {
         this.props.setUsers(res.data.items)
