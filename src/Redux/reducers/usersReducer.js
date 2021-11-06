@@ -1,4 +1,5 @@
-const IS_FOLLOWED = 'IS_FOLLOWED'
+const FOLLOWE = 'FOLLOWE'
+const UNFOLLOWE = 'UNFOLLOWE'
 const SET_USERS = 'SET-USERS'
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
@@ -14,12 +15,22 @@ const initialState = {
 
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case IS_FOLLOWED:
+    case FOLLOWE:
       return {
         ...state,
         users: state.users.map(u => {
           if (u.id === action.userId) {
-            return {...u, followed: !u.followed}
+            return {...u, followed: false}
+          }
+          return u
+        }),
+      }
+      case UNFOLLOWE:
+      return {
+        ...state,
+        users: state.users.map(u => {
+          if (u.id === action.userId) {
+            return {...u, followed: true}
           }
           return u
         }),
@@ -49,7 +60,9 @@ const usersReducer = (state = initialState, action) => {
   }
 }
 
-export const toggleFollow = (userId) => ({type: IS_FOLLOWED, userId})
+export const follow = (userId) => ({type: FOLLOWE, userId})
+
+export const unfollow = (userId) => ({type: UNFOLLOWE, userId})
 
 export const setUsers = (users) => ({type: SET_USERS, users})
 

@@ -4,6 +4,7 @@ import {NavLink} from 'react-router-dom'
 import UserLogoDefault from '../common/UserLogoDefault/UserLogoDefault'
 import Pagination from '../Pagination/Pagination'
 import Button from '../common/Button/Button'
+import * as axios from 'axios'
 
 const Users = (props) => {
   let pageCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -39,16 +40,43 @@ const Users = (props) => {
               <p className={styles.users__status}>Статус: {user.status ? user.status : <span>Нет статуса</span>}</p>
             </div>
 
-            <Button
-              text={
-                user.followed
-                  ? <span>Unfollow</span>
-                  : <span>Follow</span>
-              }
-              btnClass="button__link"
-              onClick={() => {
-                props.toggleFollow(user.id)
-              }} />
+            {user.followed ?
+              <Button
+                text={<span>Отписаться</span>}
+                btnClass="button__link"
+                clickHander={() => {
+                  axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, {
+                    withCredentials: true,
+                    headers: {
+                      'api-key': '766ef93a-df4d-40f1-a23d-13c33a1e889c'
+                    }
+                  })
+                    .then(res => {
+                      if (res.data.resultCode == 0) {
+                        props.follow(user.id)
+                      }
+                    })
+                  }
+                }
+              />
+              :  <Button
+                text={<span>Подписаться</span>}
+                btnClass="button__link"
+                clickHander={() => {
+                  axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {
+                    withCredentials: true,
+                    headers: {
+                      'api-key': '766ef93a-df4d-40f1-a23d-13c33a1e889c'
+                    }
+                  })
+                    .then(res => {
+                      if (res.data.resultCode == 0) {
+                        props.unfollow(user.id)
+                      }
+                    })
+                }}
+              />
+            }
           </li>
         )}
     </ul>

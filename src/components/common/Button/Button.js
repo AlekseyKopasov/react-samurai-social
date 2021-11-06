@@ -3,7 +3,12 @@ import styles from './Button.module.scss'
 
 const Button = (props) => {
   return (
-    <button className={[styles.button, props.btnClass && props.btnClass].join(" ")}>{ props.text }</button>
+    <button
+      className={[styles.button, props.btnClass && props.btnClass].join(" ")}
+      onClick={props.clickHander}
+    >
+      { props.text }
+    </button>
   )
 }
 
