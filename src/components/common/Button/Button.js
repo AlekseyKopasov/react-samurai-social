@@ -6,6 +6,7 @@ const Button = (props) => {
     <button
       className={[styles.button, props.btnClass && props.btnClass].join(" ")}
       onClick={props.clickHander}
+      disabled={props.disabled || false}
     >
       { props.text }
     </button>

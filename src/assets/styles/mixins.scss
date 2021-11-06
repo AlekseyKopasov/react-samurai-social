@@ -54,20 +54,27 @@
 }
 
 @mixin hover-button {
-  &:hover {
+  &:hover:not(:disabled) {
     color: $color-jazzberry-jam;
     border-color: $color-jazzberry-jam;
     outline: none;
   }
 
-  &:focus {
+  &:focus(:disabled) {
     border-color: $color-jazzberry-jam;
     outline: none;
   }
 
-  &:active {
+  &:active(:disabled) {
     color: $color-royal-blue;
     border-color: $color-royal-blue;
     outline: none;
+  }
+
+  &:disabled {
+    cursor: initial;
+    pointer-events: none;
+    color: $color-raven;
+    border-color: $color-raven;
   }
 }
