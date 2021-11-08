@@ -1,19 +1,23 @@
 import React from 'react'
 import s from './ProfileInfo.module.css'
-// import Preloader from '../../common/Preloader/Preloader'
+import Preloader from '../../common/Preloader/Preloader'
+import UserLogoDefault from '../../common/UserLogoDefault/UserLogoDefault'
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
-    // return <Preloader />
+    return <Preloader />
   }
   return (
     <div>
       <div className={s.profileInfo}>
-        {<img src={props.profile.photos.large} alt=""/> }
+        {props.profile.photos.small !== null
+          ? <img src={props.profile.photos.small} alt={props.profile.name}/>
+          : <UserLogoDefault/>
+        }
       </div>
 
       <div className={s.descriptionBlock}>
-        descr
+        <p>{props.profile.fullName}</p>
       </div>
     </div>
   )

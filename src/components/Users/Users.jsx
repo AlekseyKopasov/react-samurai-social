@@ -4,9 +4,6 @@ import {NavLink} from 'react-router-dom'
 import UserLogoDefault from '../common/UserLogoDefault/UserLogoDefault'
 import Pagination from '../Pagination/Pagination'
 import Button from '../common/Button/Button'
-import * as axios from 'axios'
-import {usersAPI} from '../../api/api'
-import {toggleFollowingProgress} from '../../Redux/reducers/usersReducer'
 
 const Users = (props) => {
   let pageCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -46,30 +43,13 @@ const Users = (props) => {
                 disabled={props.followingInProgress.some(id => id === user.id)}
                 text={<span>Отписаться</span>}
                 btnClass="button__link"
-                clickHander={() => {
-                  props.toggleFollowingInProgress(true, user.id)
-                  usersAPI.unfollow(user.id).then(data => {
-                      if (data.resultCode === 0) {
-                        props.unfollow(user.id)
-                      }
-                      props.toggleFollowingInProgress(false, user.id)
-                    })
-                  }
-                }
+                clickHander={() => props.unfollow(user.id)}
               />
               :  <Button
                 text={<span>Подписаться</span>}
                 disabled={props.followingInProgress.some(id => id === user.id)}
                 btnClass="button__link"
-                clickHander={() => {
-                  props.toggleFollowingInProgress(true, user.id)
-                  usersAPI.follow(user.id).then(data => {
-                      if (data.resultCode === 0) {
-                        props.follow(user.id)
-                      }
-                      props.toggleFollowingInProgress(false, user.id)
-                    })
-                }}
+                clickHander={() => props.follow(user.id)}
               />
             }
           </li>
