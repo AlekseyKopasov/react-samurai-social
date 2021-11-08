@@ -5,7 +5,7 @@ import UserLogoDefault from '../common/UserLogoDefault/UserLogoDefault'
 import Pagination from '../Pagination/Pagination'
 import Button from '../common/Button/Button'
 import * as axios from 'axios'
-import {followApi} from '../../api/api'
+import {usersAPI} from '../../api/api'
 import {toggleFollowingProgress} from '../../Redux/reducers/usersReducer'
 
 const Users = (props) => {
@@ -43,31 +43,31 @@ const Users = (props) => {
 
             {user.followed ?
               <Button
-                disabled={props.followingProgress.some(id => id === user.id)}
+                disabled={props.followingInProgress.some(id => id === user.id)}
                 text={<span>Отписаться</span>}
                 btnClass="button__link"
                 clickHander={() => {
-                  props.toggleFollowingProgress(true, user.id)
-                  followApi.unfollow(user.id).then(data => {
+                  props.toggleFollowingInProgress(true, user.id)
+                  usersAPI.unfollow(user.id).then(data => {
                       if (data.resultCode === 0) {
                         props.unfollow(user.id)
                       }
-                      props.toggleFollowingProgress(false, user.id)
+                      props.toggleFollowingInProgress(false, user.id)
                     })
                   }
                 }
               />
               :  <Button
                 text={<span>Подписаться</span>}
-                disabled={props.followingProgress.some(id => id === user.id)}
+                disabled={props.followingInProgress.some(id => id === user.id)}
                 btnClass="button__link"
                 clickHander={() => {
-                  props.toggleFollowingProgress(true, user.id)
-                  followApi.follow(user.id).then(data => {
+                  props.toggleFollowingInProgress(true, user.id)
+                  usersAPI.follow(user.id).then(data => {
                       if (data.resultCode === 0) {
                         props.follow(user.id)
                       }
-                      props.toggleFollowingProgress(false, user.id)
+                      props.toggleFollowingInProgress(false, user.id)
                     })
                 }}
               />
