@@ -1,4 +1,5 @@
 import React  from 'react'
+import {compose} from 'redux'
 import {connect} from 'react-redux'
 
 import {
@@ -9,7 +10,7 @@ import {
 
 import Users from './Users'
 import Preloader from '../common/Preloader/Preloader'
-import {usersAPI} from '../../api/api'
+import {withAuthRedirect} from '../../hoc/withAuthRedirect'
 
 class UsersContainer extends React.Component {
   componentDidMount() {
@@ -50,8 +51,11 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {
-  followTC,
-  unfollowTC,
-  getUsersTC
-})(UsersContainer)
+export default compose(
+  withAuthRedirect,
+  connect(mapStateToProps, {
+    followTC,
+    unfollowTC,
+    getUsersTC
+  })
+)(UsersContainer)
