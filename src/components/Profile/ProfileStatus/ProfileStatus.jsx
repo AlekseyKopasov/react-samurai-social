@@ -1,16 +1,36 @@
 import React from 'react'
 
-const ProfileStatus = (props) => {
-  return (
-    <div>
+class ProfileStatus extends React.Component{
+  state = {
+    editMode: false
+  }
+
+  activateEditMode = () => {
+    this.setState({
+      editMode: true
+    })
+  }
+
+  deactivateEditMode = () => {
+    this.setState({
+      editMode: false
+    })
+  }
+
+  render() {
+    return (
       <div>
-        <input type="text" value={props.status || null}/>
+        {this.state.editMode
+          ? <div>
+              <input autoFocus={true} onBlur={this.deactivateEditMode} type="text" placeholder={this.props.status || null}/>
+            </div>
+          : <div>
+              <p onDoubleClick={this.activateEditMode}>Status: {this.props.status ? this.props.status : "Before is empty"}</p>
+            </div>
+        }
       </div>
-      <p>
-        Status: {props.status ? props.status : "Before is empty"}
-      </p>
-    </div>
-  )
+    )
+  }
 }
 
 export default ProfileStatus
