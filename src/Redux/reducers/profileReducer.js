@@ -13,7 +13,8 @@ const initialState =  {
     {id: 5, message: 'Mock', likesCount: 14},
   ],
   newPostText: 'test text from state',
-  profile: null
+  profile: null,
+  isAuth: false,
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -43,16 +44,18 @@ const profileReducer = (state = initialState, action) => {
     default: return state
   }
 }
-const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 
-export const addPostCreator = () => ({type: ADD_POST})
-export const updateNewPostTextCreator = (text) => {
+export const addPost = () => ({type: ADD_POST})
+
+export const updateNewPostText = (text) => {
   return {
     type: UPDATE_NEW_POST_TEXT, newText: text
   }
 }
 
-export const getProfileTC = (userId) => {
+export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
+
+export const getUserProfile = (userId) => {
   return (dispatch) => {
     usersAPI.getProfile(userId)
       .then(res => {

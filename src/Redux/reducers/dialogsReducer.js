@@ -17,10 +17,10 @@ const initialState = {
     {id: 5, message: 'Mock'},
     {id: 6, message: 'Mock'},
   ],
-  newMessageBody: 'test mess from state',
+  newMessageBody: '',
 }
 
-const messagesReducer = (state = initialState, action) => {
+const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SEND_MESSAGE:
       return {
@@ -50,4 +50,4 @@ export const updateNewMessageCreator = (text) => {
   }
 }
 
-export default messagesReducer
+export default dialogsReducer

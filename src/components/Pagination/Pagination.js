@@ -7,13 +7,11 @@ const Pagination = (props) => {
       { props.pages.map(p => {
         if (p <= 5) { // TODO dev only
           return <li className={styles.pagination__item} key={p}>
-            <a
-              href="#"
-              className={styles.pagination__link + " " + (props.currentPage === p && styles["selected-page"])}
-              onClick={ () => {props.onPageChanged(p)} }
-            >
+            <button
+               className={styles.pagination__link + " " + (props.currentPage === p && styles["selected-page"])}
+               onClick={() => {props.onPageChanged(p)}}>
               {p}
-            </a>
+            </button>
           </li>
         }
         return false

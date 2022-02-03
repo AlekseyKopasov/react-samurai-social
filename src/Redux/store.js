@@ -1,5 +1,5 @@
 import profileReducer from './reducers/profileReducer'
-import messagesReducer from './reducers/messagesReducer'
+import dialogsReducer from './reducers/dialogsReducer'
 import sidebarReducer from './reducers/sidebarReducer'
 
 const store = {
@@ -46,7 +46,7 @@ const store = {
 
   dispatch(action) {
     this._state.profilePage = profileReducer(this._state.profilePage, action)
-    this._state.messagesPage = messagesReducer(this._state.messagesPage, action)
+    this._state.messagesPage = dialogsReducer(this._state.messagesPage, action)
     this._state.sidebar = sidebarReducer(this._state.sidebar, action)
 
     this._callSubscriber(this._state)

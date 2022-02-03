@@ -2,13 +2,15 @@ import React from 'react'
 import s from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import MessageItem from './Message/Message'
-const Dialogs = props => {
-  const { messagesPage } = props
 
-  const dialogsElems = messagesPage.dialogs
+const Dialogs = (props) => {
+  const state = props.dialogsPage
+  const newMessageBody = state.newMessageBody
+
+  const dialogsElems = state.dialogs
     .map(d => <DialogItem name={d.name} key={d.id} id={d.id}/>)
 
-  const messagesElems = messagesPage.messages
+  const messagesElems = state.messages
     .map(m => <MessageItem message={m.message} key={m.id}/>)
 
   const updateMessageBodyHandler = event => {
@@ -35,7 +37,7 @@ const Dialogs = props => {
       <div className={s.textareaWrap}>
         <textarea
           onChange={updateMessageBodyHandler}
-          value={messagesPage.newMessageBody}
+          value={newMessageBody}
         />
         <button onClick={ sendMessageHandler }>Send Message</button>
       </div>

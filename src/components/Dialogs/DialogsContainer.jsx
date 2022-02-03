@@ -1,4 +1,4 @@
-import {sendMessageCreator, updateNewMessageCreator} from '../../Redux/reducers/messagesReducer'
+import {sendMessageCreator, updateNewMessageCreator} from '../../Redux/reducers/dialogsReducer'
 import Dialogs from './Dialogs'
 import {compose} from 'redux'
 import {connect} from 'react-redux'
@@ -6,7 +6,7 @@ import {withAuthRedirect} from '../../hoc/withAuthRedirect'
 
 const mapStateToProps = (state) => {
   return {
-    messagesPage: state.messagesPage,
+    dialogsPage: state.dialogsPage,
   }
 }
 

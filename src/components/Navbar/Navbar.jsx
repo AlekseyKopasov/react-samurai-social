@@ -7,10 +7,13 @@ const Navbar = () => {
     <nav className={s.nav}>
       <ul className={s.nav__list}>
         <li className={s.nav__item}>
-          <NavLink to="/profile" className={s.nav__link}>Profile</NavLink>
+          <NavLink to="/profile" className={s.nav__link} activeClassName={s.activeLink}>Profile</NavLink>
         </li>
         <li className={s.nav__item}>
           <NavLink to="/dialogs" className={s.nav__link} activeClassName={s.activeLink}>Messages</NavLink>
+        </li>
+        <li className={s.nav__item}>
+          <NavLink to="/users" className={s.nav__link} activeClassName={s.activeLink}>Users</NavLink>
         </li>
         <li className={s.nav__item}>
           <NavLink to="" className={s.nav__link}>News</NavLink>
@@ -20,9 +23,6 @@ const Navbar = () => {
         </li>
         <li className={s.nav__item}>
           <NavLink to="" className={s.nav__link}>Settings</NavLink>
-        </li>
-        <li className={s.nav__item}>
-          <NavLink to="/users" className={s.nav__link}>Users</NavLink>
         </li>
       </ul>
     </nav>
