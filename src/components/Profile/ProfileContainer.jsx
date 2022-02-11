@@ -15,7 +15,10 @@ class ProfileContainer extends React.Component {
     }
 
     this.props.getUserProfile(userId)
-    this.props.getStatus(userId)
+
+    setTimeout(() => {
+      this.props.getStatus(userId)
+    }, 1000)
   }
 
   render() {
@@ -23,7 +26,7 @@ class ProfileContainer extends React.Component {
       {...this.props}
       profile={this.props.profile}
       status={this.props.status}
-      updateStatus={updateStatus}
+      updateStatus={this.props.updateStatus}
     />
   }
 }
