@@ -1,6 +1,7 @@
 import React from 'react'
 import s from './MyPosts.module.css'
 import Post from './Post/Post'
+import PostReduxForm from './PostForm'
 
 const MyPosts = props => {
   const postsElems = props.posts
@@ -17,14 +18,21 @@ const MyPosts = props => {
     props.updateNewPostText(text)
   }
 
+  const onSubmit = (formData) => {
+    console.log(formData)
+  }
+
   return (
     <div className={s.postsBlock}>
       <div>
         <h3>My posts</h3>
-        <div>
-          <textarea ref={newPostElement} onChange={onChangePost} value={props.newPostText} />
-          <button onClick={onAddPost}>Add Post</button>
-        </div>
+        <PostReduxForm
+          newPostElement={newPostElement}
+          onChangePost={onChangePost}
+          newPostText={props.newPostText}
+          onAddPost={onAddPost}
+          onSubmit={onSubmit}
+        />
       </div>
 
       <ul className={s.list}>

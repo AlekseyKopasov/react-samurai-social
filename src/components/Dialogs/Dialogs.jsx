@@ -2,6 +2,7 @@ import React from 'react'
 import s from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import MessageItem from './Message/Message'
+import DialogsReduxForm from './DialogsForm'
 
 const Dialogs = (props) => {
   const state = props.dialogsPage
@@ -21,6 +22,9 @@ const Dialogs = (props) => {
   const sendMessageHandler = () => {
     props.sendMessageCreator()
   }
+  const onSubmit = (formData) => {
+    console.log(formData)
+  }
 
   return (
     <div className={s.dialogs}>
@@ -35,11 +39,12 @@ const Dialogs = (props) => {
       </div>
 
       <div className={s.textareaWrap}>
-        <textarea
-          onChange={updateMessageBodyHandler}
-          value={newMessageBody}
+        <DialogsReduxForm
+          updateMessageBodyHandler={updateMessageBodyHandler}
+          newMessageBody={newMessageBody}
+          sendMessageHandler={sendMessageHandler}
+          onSubmit={onSubmit}
         />
-        <button onClick={ sendMessageHandler }>Send Message</button>
       </div>
     </div>
   )
