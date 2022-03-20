@@ -14,16 +14,8 @@ const Dialogs = (props) => {
   const messagesElems = state.messages
     .map(m => <MessageItem message={m.message} key={m.id}/>)
 
-  const updateMessageBodyHandler = event => {
-    const text = event.target.value
-    props.updateNewMessageCreator(text)
-  }
-
-  const sendMessageHandler = () => {
-    props.sendMessageCreator()
-  }
-  const onSubmit = (formData) => {
-    console.log(formData)
+  const onSubmit = (values) => {
+    props.sendMessageCreator(values.message)
   }
 
   return (
@@ -40,9 +32,6 @@ const Dialogs = (props) => {
 
       <div className={s.textareaWrap}>
         <DialogsReduxForm
-          updateMessageBodyHandler={updateMessageBodyHandler}
-          newMessageBody={newMessageBody}
-          sendMessageHandler={sendMessageHandler}
           onSubmit={onSubmit}
         />
       </div>

@@ -7,32 +7,15 @@ const MyPosts = props => {
   const postsElems = props.posts
     .map(p =>  <Post message={p.message} likesCount={p.likesCount} key={p.id} id={p.id} />)
 
-  const newPostElement = React.createRef()
-
-  const onAddPost = () => {
-    props.addPost()
-  }
-
-  const onChangePost = () => {
-    const text = newPostElement.current.value
-    props.updateNewPostText(text)
-  }
-
-  const onSubmit = (formData) => {
-    console.log(formData)
+  const onSubmit = (values) => {
+    props.addPost(values.newPost)
   }
 
   return (
     <div className={s.postsBlock}>
       <div>
         <h3>My posts</h3>
-        <PostReduxForm
-          newPostElement={newPostElement}
-          onChangePost={onChangePost}
-          newPostText={props.newPostText}
-          onAddPost={onAddPost}
-          onSubmit={onSubmit}
-        />
+        <PostReduxForm onSubmit={onSubmit} />
       </div>
 
       <ul className={s.list}>

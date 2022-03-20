@@ -10,10 +10,8 @@ const DialogsForm = (props) => {
         placeholder="Your message"
         name="message"
         component="textarea"
-        onChange={props.updateMessageBodyHandler}
-        value={props.newMessageBody}
       />
-      <button type="submit" onClick={ props.sendMessageHandler }>Send Message</button>
+      <button type="submit">Send Message</button>
     </form>
   )
 }

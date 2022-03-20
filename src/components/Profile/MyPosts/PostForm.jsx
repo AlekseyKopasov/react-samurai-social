@@ -11,11 +11,8 @@ const PostForm = (props) => {
           placeholder="New post"
           name="newPost"
           component="textarea"
-          ref={props.newPostElement}
-          onChange={props.onChangePost}
-          value={props.newPostText}
         />
-        <button onClick={props.onAddPost}>Add Post</button>
+        <button type="submit">Add Post</button>
       </form>
     )
 }
