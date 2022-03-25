@@ -1,9 +1,7 @@
 import React from 'react'
 import {Field, reduxForm} from 'redux-form'
 import {Input} from '../common/FormsControls/FormsControls'
-import {required, maxLengthCreator} from '../../utils/validators/validators'
-
-const maxLength10 = maxLengthCreator(10)
+import {required} from '../../utils/validators/validators'
 
 const LoginForm = (props) => {
   const { handleSubmit } = props
@@ -15,9 +13,9 @@ const LoginForm = (props) => {
           <Field
             type="text"
             placeholder="Login"
-            name="login"
+            name="email"
             component={Input}
-            validate={[required, maxLength10]}
+            validate={[required]}
           />
         </div>
         <div>
