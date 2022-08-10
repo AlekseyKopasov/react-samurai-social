@@ -1,0 +1,39 @@
+{
+  "files": {
+    "static/js/0.d6472ee2.chunk.js": "/react-samurai-social/static/js/0.d6472ee2.chunk.js",
+    "static/js/0.d6472ee2.chunk.js.map": "/react-samurai-social/static/js/0.d6472ee2.chunk.js.map",
+    "main.css": "/react-samurai-social/static/css/main.0e511895.chunk.css",
+    "main.js": "/react-samurai-social/static/js/main.549c0455.chunk.js",
+    "main.js.map": "/react-samurai-social/static/js/main.549c0455.chunk.js.map",
+    "runtime-main.js": "/react-samurai-social/static/js/runtime-main.b85925f3.js",
+    "runtime-main.js.map": "/react-samurai-social/static/js/runtime-main.b85925f3.js.map",
+    "static/js/3.c9802cc6.chunk.js": "/react-samurai-social/static/js/3.c9802cc6.chunk.js",
+    "static/js/3.c9802cc6.chunk.js.map": "/react-samurai-social/static/js/3.c9802cc6.chunk.js.map",
+    "static/css/4.98bcfd64.chunk.css": "/react-samurai-social/static/css/4.98bcfd64.chunk.css",
+    "static/js/4.1d7d013c.chunk.js": "/react-samurai-social/static/js/4.1d7d013c.chunk.js",
+    "static/js/4.1d7d013c.chunk.js.map": "/react-samurai-social/static/js/4.1d7d013c.chunk.js.map",
+    "static/css/5.a7e53049.chunk.css": "/react-samurai-social/static/css/5.a7e53049.chunk.css",
+    "static/js/5.9609b734.chunk.js": "/react-samurai-social/static/js/5.9609b734.chunk.js",
+    "static/js/5.9609b734.chunk.js.map": "/react-samurai-social/static/js/5.9609b734.chunk.js.map",
+    "static/css/6.146018f8.chunk.css": "/react-samurai-social/static/css/6.146018f8.chunk.css",
+    "static/js/6.d0696c09.chunk.js": "/react-samurai-social/static/js/6.d0696c09.chunk.js",
+    "static/js/6.d0696c09.chunk.js.map": "/react-samurai-social/static/js/6.d0696c09.chunk.js.map",
+    "static/css/7.ab13763f.chunk.css": "/react-samurai-social/static/css/7.ab13763f.chunk.css",
+    "static/js/7.7d9a1776.chunk.js": "/react-samurai-social/static/js/7.7d9a1776.chunk.js",
+    "static/js/7.7d9a1776.chunk.js.map": "/react-samurai-social/static/js/7.7d9a1776.chunk.js.map",
+    "index.html": "/react-samurai-social/index.html",
+    "static/css/4.98bcfd64.chunk.css.map": "/react-samurai-social/static/css/4.98bcfd64.chunk.css.map",
+    "static/css/5.a7e53049.chunk.css.map": "/react-samurai-social/static/css/5.a7e53049.chunk.css.map",
+    "static/css/6.146018f8.chunk.css.map": "/react-samurai-social/static/css/6.146018f8.chunk.css.map",
+    "static/css/7.ab13763f.chunk.css.map": "/react-samurai-social/static/css/7.ab13763f.chunk.css.map",
+    "static/css/main.0e511895.chunk.css.map": "/react-samurai-social/static/css/main.0e511895.chunk.css.map",
+    "static/js/3.c9802cc6.chunk.js.LICENSE.txt": "/react-samurai-social/static/js/3.c9802cc6.chunk.js.LICENSE.txt",
+    "static/media/style.scss": "/react-samurai-social/static/media/rounded.bfea156a.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b85925f3.js",
+    "static/js/3.c9802cc6.chunk.js",
+    "static/css/main.0e511895.chunk.css",
+    "static/js/main.549c0455.chunk.js"
+  ]
+}
