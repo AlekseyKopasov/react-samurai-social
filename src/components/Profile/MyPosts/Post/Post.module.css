@@ -1,0 +1,9 @@
+.item {
+  margin-top: 10px;
+  color: burlywood;
+}
+
+.item img {
+  width: 40px;
+  object-fit: cover;
+}

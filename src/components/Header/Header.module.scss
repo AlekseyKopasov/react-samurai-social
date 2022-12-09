@@ -1,0 +1,25 @@
+@import "../../assets/styles/variables.scss";
+
+.header {
+  background-color: $color-black-russian-2;
+}
+
+.header__wrapper {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: auto;
+}
+
+.header__login-link {
+  font-family: inherit;
+  color: inherit;
+  text-decoration: none;
+}

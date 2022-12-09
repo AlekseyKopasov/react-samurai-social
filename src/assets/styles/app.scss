@@ -1,0 +1,11 @@
+.app {
+  min-height: 100vh;
+}
+
+.app__content {
+  display: flex;
+  min-height: inherit;
+  max-width: 1440px;
+  width: 100%;
+  background-color: $color-black-russian;
+}

@@ -1,0 +1,59 @@
+@import "../../assets/styles/variables.scss";
+
+.users__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.users__item {
+  display: flex;
+  margin-bottom: 25px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .button__link {
+    align-self: center;
+  }
+}
+
+.users__logo {
+  margin-right: 25px;
+
+  svg {
+    transition: fill $trans--300;
+  }
+
+  &:hover svg,
+  &:focus svg {
+    fill: $color-royal-blue;
+  }
+}
+
+.users__info {
+  width: 100%;
+
+  p {
+    margin: 0 0 15px;
+    color: $color-raven;
+  }
+
+  span {
+    color: $color-royal-blue;
+  }
+}
+
+.users__name {
+  span {
+    display: inline-block;
+    padding-left: 4px;
+    transition: color $trans--300;
+  }
+
+  &:hover span,
+  &:focus span {
+    color: $color-jazzberry-jam;
+  }
+}

@@ -1,0 +1,22 @@
+@import "../../../assets/styles/variables.scss";
+@import "../../../assets/styles/mixins.scss";
+
+.button {
+  border: 1px solid $color-solitude;
+  border-radius: 5px;
+  align-self: center;
+  background-color: transparent;
+
+  min-width: 170px;
+  padding: 10px 30px;
+  color: inherit;
+
+  font-family: $font-family--rouble;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+
+  transition: $trans--300;
+
+  @include hover-button;
+}

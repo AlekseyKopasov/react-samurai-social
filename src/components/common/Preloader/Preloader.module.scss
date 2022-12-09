@@ -1,0 +1,45 @@
+@import "../../../assets/styles/variables.scss";
+
+.preloader {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba($color-jazzberry-jam, 0.1);
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.path-preloader {
+  stroke: cyan;
+  stroke-width: 6;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-dasharray: 100px;
+  fill: none;
+  animation: load 4s linear infinite, color 3s linear infinite;
+}
+
+@keyframes load {
+  from {
+    stroke-dashoffset: 800;
+  }
+}
+
+@keyframes color {
+  33% {
+    stroke: yellow;
+  }
+
+  66% {
+    stroke: magenta;
+  }
+}

@@ -1,0 +1,18 @@
+@import "../../assets/styles/variables.scss";
+
+.sidebar {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+
+  border: 1px solid $color-black-russian;
+  background-color: $color-black-russian-2;
+}
+
+.sidebar__logout {
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}

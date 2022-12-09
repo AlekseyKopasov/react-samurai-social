@@ -1,0 +1,80 @@
+@mixin retina {
+  @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+    @content;
+  }
+}
+
+// Desktop first
+
+@mixin vp--1919 {
+  @media (max-width: $vp--1920 - 1) {
+    @content;
+  }
+}
+
+@mixin vp--1439 {
+  @media (max-width: $vp--1440 - 1) {
+    @content;
+  }
+}
+
+@mixin vp--1279 {
+  @media (max-width: $vp--1280 - 1) {
+    @content;
+  }
+}
+
+@mixin vp--1023 {
+  @media (max-width: $vp--1024 - 1) {
+    @content;
+  }
+}
+
+@mixin vp--767 {
+  @media (max-width: $vp--768 - 1) {
+    @content;
+  }
+}
+
+@mixin vp--374 {
+  @media (max-width: $vp--375 - 1) {
+    @content;
+  }
+}
+
+@mixin hover-link {
+  &:hover,
+  &:focus {
+    color: $color-jazzberry-jam;
+  }
+
+  &:active {
+    color: $color-royal-blue;
+  }
+}
+
+@mixin hover-button {
+  &:hover:not(:disabled) {
+    color: $color-jazzberry-jam;
+    border-color: $color-jazzberry-jam;
+    outline: none;
+  }
+
+  &:focus(:disabled) {
+    border-color: $color-jazzberry-jam;
+    outline: none;
+  }
+
+  &:active(:disabled) {
+    color: $color-royal-blue;
+    border-color: $color-royal-blue;
+    outline: none;
+  }
+
+  &:disabled {
+    cursor: initial;
+    pointer-events: none;
+    color: $color-raven;
+    border-color: $color-raven;
+  }
+}

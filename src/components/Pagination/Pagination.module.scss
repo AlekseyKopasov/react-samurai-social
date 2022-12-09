@@ -1,0 +1,73 @@
+@import "../../assets/styles/variables.scss";
+
+.pagination {
+  display: flex;
+  align-items: center;
+
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.pagination__list {
+  margin: 20px auto;
+  padding: 0;
+  list-style: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination__item {
+  width: 45px;
+  height: 45px;
+  margin-right: 7px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.pagination__link,
+.pagination__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  padding: 10px;
+  font-size: 16px;
+  text-decoration: none;
+
+  border-radius: 50%;
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+
+  color: $color-solitude;
+  background-color: $color-black-russian-2;
+  transition: color $trans--300;
+
+  &:hover,
+  &:focus {
+    color: $color-jazzberry-jam;
+  }
+
+  &.selected-page {
+    border: 1px solid $color-jazzberry-jam;
+    color: $color-jazzberry-jam;
+    pointer-events: none;
+  }
+}
+
+.pagination__button {
+  cursor: pointer;
+  width: 40px; // TODO dev only
+  height: 40px; // TODO dev only
+
+  &:active {
+    border: 1px solid $color-jazzberry-jam;
+    color: $color-jazzberry-jam;
+  }
+}
