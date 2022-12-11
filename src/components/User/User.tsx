@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Users.module.scss'
+import styles from '../Users/Users.module.scss'
 import { NavLink } from 'react-router-dom'
 import UserLogoDefault from '../common/UserLogoDefault/UserLogoDefault'
 import Button from '../common/Button/Button'

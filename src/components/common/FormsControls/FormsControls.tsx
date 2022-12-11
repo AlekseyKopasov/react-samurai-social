@@ -25,7 +25,6 @@ const FormControl: React.FC<FormControlPropsType> = ({
 
 export const Textarea: React.FC<WrappedFieldProps> = (props) => {
   const { input, meta, ...restProps } = props
-  console.log(input)
   return <FormControl { ...props }> <textarea { ...input } { ...restProps }/> </FormControl>
 }
 

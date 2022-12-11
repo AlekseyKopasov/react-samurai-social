@@ -11,7 +11,10 @@ const InitialState = {
   totalUsersCount: 0,
   currentPage: 1,
   isFetching: true,
-  followingInProgress: [] as Array<number> // array of users id`s
+  followingInProgress: [] as Array<number>, // array of users id`s
+  filter: {
+    term: ''
+  }
 }
 
 const usersReducer = (state = InitialState, action: ActionsTypes): InitialStateType => {
@@ -55,6 +58,11 @@ const usersReducer = (state = InitialState, action: ActionsTypes): InitialStateT
           ? [ ...state.followingInProgress, action.userId ]
           : [ ...state.followingInProgress.filter(id => id !== action.userId) ]
       }
+    case 'SN/USERS/SET_FILTER':
+      return {
+        ...state,
+        filter: action.payload
+      }
     default:
       return state
   }
@@ -76,6 +84,8 @@ export const actions = {
   unfollowSuccess: (userId: number) => ({ type: 'SN/USERS/UNFOLLOW', userId } as const),
 
   setCurrentPage: (currentPage: number) => ({ type: 'SN/USERS/SET_CURRENT_PAGE', currentPage } as const),
+
+  setFilter: (term: string) => ({ type: 'SN/USERS/SET_FILTER', payload: { term } } as const),
 
   toggleFollowingProgress:
     (isFetching: boolean, userId: number) =>
@@ -110,12 +120,13 @@ export const unfollow = (userId: number): ThunkType => {
   }
 }
 
-export const requestUsers = (page: number, pageSize: number): ThunkType =>
+export const requestUsers = (page: number, pageSize: number, term: string): ThunkType =>
   async (dispatch) => {
     dispatch(actions.toggleIsFetching(true))
     dispatch(actions.setCurrentPage(page))
+    dispatch(actions.setFilter(term))
 
-    let response = await usersAPI.getUsers(page, pageSize)
+    let response = await usersAPI.getUsers(page, pageSize, term)
     dispatch(actions.toggleIsFetching(false))
     dispatch(actions.setUsers(response.items))
     dispatch(actions.setTotalUsersCount(response.totalCount))
@@ -124,5 +135,6 @@ export const requestUsers = (page: number, pageSize: number): ThunkType =>
 export default usersReducer
 
 export type InitialStateType = typeof InitialState
+export type FilterType = typeof InitialState.filter
 type ThunkType = BaseThunkType<ActionsTypes>
 type ActionsTypes = InferActionsTypes<typeof actions>
