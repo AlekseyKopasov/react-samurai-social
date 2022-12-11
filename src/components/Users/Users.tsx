@@ -27,6 +27,11 @@ const Users: React.FC<PropsType> = (props) => {
   } = props
 
   return <div className={ styles.users }>
+
+    <div>
+
+    </div>
+
     { <Pagination
       totalItemsCount={ totalUsersCount }
       pageSize={ pageSize }
